@@ -7,11 +7,9 @@ import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.protocol.FormattedMessage;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
-import com.hypixel.hytale.protocol.packets.interface_.ChatMessage;
 import com.hypixel.hytale.server.core.Message;
 import com.hypixel.hytale.server.core.entity.InteractionContext;
 import com.hypixel.hytale.server.core.modules.entity.teleport.Teleport;
@@ -55,7 +53,7 @@ public class WarpPlayerInteraction extends SimpleInstantInteraction {
             return;
         }
 
-        if(Config.getInstance().doTwoWayTravel()) {
+        if(WarpCrystals.CONFIG.get().doTwoWayTravel()) {
             PlayerWarpBackLocationComponent warpBackLocationComponent = playerStore.getComponent(playerRef, WarpCrystals.get().getPlayerWarpBackComponentType());
             if(warpBackLocationComponent == null){
                 PlayerWarpBackLocationComponent newwarpBackLocationComponent = new PlayerWarpBackLocationComponent(playerRef, key);
@@ -71,7 +69,7 @@ public class WarpPlayerInteraction extends SimpleInstantInteraction {
                 warpLocationComponent.getRotation(key)
         );
 
-        String message = Config.getInstance().getWarpMessage();
+        String message = WarpCrystals.CONFIG.get().getWarpMessage();
         if(!message.equals("")) {
             Nameplate nameplate = playerStore.getComponent(playerRef, Nameplate.getComponentType());
             if(nameplate != null) {

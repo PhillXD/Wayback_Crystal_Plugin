@@ -19,8 +19,6 @@ import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
-import javax.xml.crypto.Data;
-
 public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
     public static final BuilderCodec<SetPlayerWarpInteraction> CODEC = BuilderCodec.builder(
             SetPlayerWarpInteraction.class, SetPlayerWarpInteraction::new, SimpleInstantInteraction.CODEC
@@ -50,7 +48,7 @@ public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
             return;
         }
         
-        if(Config.getInstance().doTwoWayTravel() &&  interactionContext.getTargetBlock() != null && interactionContext.getTargetBlock().equals(warpLocationComponent.getBlockLocation(key))) {
+        if(WarpCrystals.CONFIG.get().doTwoWayTravel() &&  interactionContext.getTargetBlock() != null && interactionContext.getTargetBlock().equals(warpLocationComponent.getBlockLocation(key))) {
 
             PlayerWarpBackLocationComponent warpBackLocationComponent = playerStore.getComponent(playerRef, WarpCrystals.get().getPlayerWarpBackComponentType());
             if(warpBackLocationComponent != null && warpBackLocationComponent.hasWarp(key)){
@@ -62,7 +60,7 @@ public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
                 );
                 commandBuffer.addComponent(playerRef,Teleport.getComponentType(),teleport);
 
-                String message = Config.getInstance().getWarpBackMessage();
+                String message = WarpCrystals.CONFIG.get().getWarpBackMessage();
                 if(!message.equals("")) {
                     Nameplate nameplate = playerStore.getComponent(playerRef, Nameplate.getComponentType());
                     if(nameplate != null) {
@@ -84,7 +82,7 @@ public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
         }
         
 
-        String message = Config.getInstance().getSetWarpMessage();
+        String message = WarpCrystals.CONFIG.get().getSetWarpMessage();
         if(!message.equals("")) {
             Nameplate nameplate = playerStore.getComponent(playerRef, Nameplate.getComponentType());
             if(nameplate != null) {
