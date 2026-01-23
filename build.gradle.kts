@@ -3,12 +3,12 @@ plugins {
     id("hytale-mod") version "0.+"
 }
 
-group = "com.example"
-version = "0.1.0"
+group = "com.philxd"
+version = "0.3.2"
 val javaVersion = 25
 
 val appData = System.getenv("APPDATA") ?: (System.getenv("HOME") + "/.var/app/com.hypixel.HytaleLauncher/data")
-val hytaleAssets = file("$appData/Hytale/install/release/package/game/latest/Assets.zip")
+val hytaleAssets = file("F:/Spiele/hytale/game/install/release/package/game/latest/Assets.zip")
 
 
 repositories {

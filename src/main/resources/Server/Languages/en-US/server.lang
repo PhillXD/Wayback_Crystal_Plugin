@@ -1,1 +1,6 @@
-items.Example_Block.name=Example Block
+items.Wayback_Crystal.name=Wayback Crystal
+items.Wayback_Crystal.description=Right Click to teleport to last activated Warp Beacon
+items.Warp_Beacon.name=Warp Beacon
+items.Warp_Beacon.description=Press F to activate. Saves Current position for the Wayback Crystal
+items.Wayback_Crystal_One_Use.name=Wayback Crystal (Single Use)
+items.Wayback_Crystal_One_Use.description=Right Click to teleport to last activated Warp Beacon. Breaks after use

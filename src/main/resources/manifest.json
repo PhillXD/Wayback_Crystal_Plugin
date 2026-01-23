@@ -1,18 +1,18 @@
 {
-  "Group": "${plugin_group}",
-  "Name": "${plugin_name}",
-  "Version": "${plugin_version}",
-  "Description": "${plugin_description}",
+  "Group": "PhilXD",
+  "Name": "WarpCrystals",
+  "Version": "0.3.2",
+  "Description": "Adds Warp Crystals to the game",
   "Authors": [
     {
-      "Name": "${plugin_author}"
+      "Name": "PhilXD"
     }
   ],
-  "Website": "${plugin_website}",
-  "ServerVersion": "${server_version}",
+  "Website": "",
+  "ServerVersion": "*",
   "Dependencies": {},
   "OptionalDependencies": {},
   "DisabledByDefault": false,
   "IncludesAssetPack": true,
-  "Main": "${plugin_main_entrypoint}"
+  "Main": "com.philxd.warpcrystals.WarpCrystals"
 }
