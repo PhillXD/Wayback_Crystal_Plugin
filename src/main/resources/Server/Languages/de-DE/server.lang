@@ -1,0 +1,6 @@
+items.Wayback_Crystal.name=Rückreise Kristall
+items.Wayback_Crystal.description=Rechtsklicken um sich zum Reise Anker zu teleportieren
+items.Warp_Beacon.name=Reise Anker
+items.Warp_Beacon.description=Drücke F um den Reise Anker zu aktivieren. Diese speichert die position für den Rückreise Kristall
+items.Wayback_Crystal_One_Use.name=Rückreise Kristall (Einmalig)
+items.Wayback_Crystal_One_Use.description=Rechtsklicken um sich zum Reise Anker zu teleportieren. Zerbricht nach der Verwendung

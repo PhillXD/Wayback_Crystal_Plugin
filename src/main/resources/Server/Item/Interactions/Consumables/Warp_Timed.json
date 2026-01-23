@@ -1,0 +1,37 @@
+{
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "Type": "Simple",
+      "Effects": {
+        "LocalSoundEventId": "SFX_Portal_Neutral_Teleport_Local",
+        "ClearSoundEventOnFinish": true
+      }
+    },
+    {
+      "Type": "Charging",
+      "FailOnDamage": true,
+      "HorizontalSpeedMultiplier": 0,
+      "Next": {
+        "3": {
+          "Type": "Replace",
+          "Var": "WarpKey",
+          "DefaultValue": {
+            "Interactions": [
+              {
+                "Type": "Warp_Player_Interaction"
+              }
+            ]
+          },
+          "Effects": {
+            "LocalSoundEventId": "SFX_Staff_Flame_Flamethrower_End_Local",
+            "WorldSoundEventId": "SFX_Staff_Flame_Flamethrower_End"
+          }
+        }
+      },
+      "Failed": {
+        "Type": "Simple"
+      }
+    }
+  ]
+}

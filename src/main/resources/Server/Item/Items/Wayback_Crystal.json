@@ -1,0 +1,105 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Wayback_Crystal.name",
+    "Description": "server.items.Wayback_Crystal.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Wayback_Crystal.png",
+  "Categories": [
+    "Blocks.Rocks",
+    "Blocks.Rocks"
+  ],
+  "PlayerAnimationsId": "Block",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "HitboxType": "Full",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "DropList": "Rock_Crystal_Water",
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Crystal",
+    "ParticleColor": "#245bc1",
+    "BlockSoundSetId": "Crystal",
+    "CubeShadingMode": "Reflective",
+    "Light": {
+      "Color": "#607"
+    },
+    "VariantRotation": "Pipe",
+    "CustomModel": "Blocks/Wayback/Wayback_Crystal.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Wayback_Crystal.png"
+      }
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Crystal"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      5,
+      51,
+      13
+    ],
+    "Translation": [
+      0,
+      -11
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "Input": [
+      {
+        "ItemId": "Ingredient_Void_Essence",
+        "Quantity": 5
+      },
+      {
+        "ItemId": "Ingredient_Bar_Gold",
+        "Quantity": 3
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Workbench",
+        "Type": "Crafting",
+        "Categories": [
+          "Workbench_Survival"
+        ]
+      }
+    ]
+  },
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        "Warp_Timed"
+      ],
+      "RequireNewClick": true
+    }
+  },
+  "MaxStack": 1,
+  "InteractionVars": {
+    "WarpKey": {
+      "Interactions": [
+        {
+          "Type": "Warp_Player_Interaction",
+          "WarpKey": ""
+        }
+      ]
+    }
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Wayback_Crystal"
+    }
+  ]
+}
