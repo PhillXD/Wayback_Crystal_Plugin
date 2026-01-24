@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Vector3f;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
@@ -66,7 +67,7 @@ public class WarpPlayerInteraction extends SimpleInstantInteraction {
         Teleport teleport = new Teleport(
                 warpLocationComponent.getWorld(key),
                 warpLocationComponent.getLocation(key),
-                warpLocationComponent.getRotation(key)
+                WarpCrystals.reduceRotationToYaw(warpLocationComponent.getRotation(key))
         );
 
         String message = WarpCrystals.CONFIG.get().getWarpMessage();

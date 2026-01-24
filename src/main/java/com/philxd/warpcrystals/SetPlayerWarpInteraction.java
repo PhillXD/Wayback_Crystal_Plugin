@@ -56,7 +56,7 @@ public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
                 Teleport teleport = new Teleport(
                         warpBackLocationComponent.getWorld(key),
                         warpBackLocationComponent.getLocation(key),
-                        warpBackLocationComponent.getRotation(key)
+                        WarpCrystals.reduceRotationToYaw(warpBackLocationComponent.getRotation(key))
                 );
                 commandBuffer.addComponent(playerRef,Teleport.getComponentType(),teleport);
 
