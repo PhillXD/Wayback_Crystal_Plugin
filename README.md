@@ -1,6 +1,6 @@
 # Wayback Crystals
 
-Download on [Curseforge](https://www.curseforge.com/hytale/mods/wayback-crystals)
+Download on [CurseForge](https://www.curseforge.com/hytale/mods/wayback-crystals)
 
 A Hytale plugin by Phillip Laue
 
