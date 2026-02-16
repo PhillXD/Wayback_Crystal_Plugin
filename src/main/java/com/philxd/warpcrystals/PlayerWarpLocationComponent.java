@@ -38,13 +38,16 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
     public @Nullable Component<EntityStore> clone() {
         PlayerWarpLocationComponent clone = new PlayerWarpLocationComponent();
         clone.data = new HashMap<String,PlayerWarpData>();
-        for (Map.Entry<String, PlayerWarpData> entry : this.data.entrySet()) {
-            clone.data.put(entry.getKey(), entry.getValue().clone());
+        if(this.data != null) {
+            for (Map.Entry<String, PlayerWarpData> entry : this.data.entrySet()) {
+                clone.data.put(entry.getKey(), entry.getValue().clone());
+            }
         }
         return clone;
     }
 
     public PlayerWarpLocationComponent(){
+        data = new HashMap<String,PlayerWarpData>();
     }
     
     public PlayerWarpLocationComponent(Ref<EntityStore> player, BlockPosition blockPosition, String key){
@@ -79,8 +82,10 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
     public PlayerWarpLocationComponent(PlayerWarpLocationComponent other){
 
         this.data = new HashMap<String,PlayerWarpData>();
-        for (Map.Entry<String, PlayerWarpData> entry : other.data.entrySet()) {
-            this.data.put(entry.getKey(), entry.getValue().clone());
+        if(other.data != null) {
+            for (Map.Entry<String, PlayerWarpData> entry : other.data.entrySet()) {
+                this.data.put(entry.getKey(), entry.getValue().clone());
+            }
         }
     }
     
@@ -114,14 +119,19 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
     }
     
     public boolean hasWarp(String key){
+        if (data == null) data = new HashMap<>();
         return data.containsKey(key);
     }
     
+    @Nullable
     public Vector3d getLocation(String key){
+        if (data == null || !data.containsKey(key)) return null;
         return data.get(key).location.clone();
     }
     
+    @Nullable
     public BlockPosition getBlockLocation(String key){
+        if (data == null || !data.containsKey(key)) return null;
         Vector3i position = data.get(key).blockLocation;
         if(position == null) return null;
         BlockPosition blockPosition = new BlockPosition(position.x, position.y, position.z);
@@ -130,10 +140,13 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
     }
     
     public Vector3f getRotation(String key){
+        if (data == null || !data.containsKey(key)) return new Vector3f(0.0F, 0.0F, 0.0F);
         return data.get(key).rotation.clone();
     }
     
+    @Nullable
     public World getWorld(String key){
+        if (data == null || !data.containsKey(key)) return null;
         return Universe.get().getWorld(data.get(key).world);
     }
 }

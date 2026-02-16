@@ -34,14 +34,17 @@ public class PlayerWarpBackLocationComponent implements Component<EntityStore> {
     @Override
     public @Nullable Component<EntityStore> clone() {
         PlayerWarpBackLocationComponent clone = new PlayerWarpBackLocationComponent();
-        clone.data = new HashMap<String,PlayerWarpBackData>();
-        for (Map.Entry<String, PlayerWarpBackData> entry : this.data.entrySet()) {
-            clone.data.put(entry.getKey(), entry.getValue().clone());
+        if(this.data != null) {
+            clone.data = new HashMap<String, PlayerWarpBackData>();
+            for (Map.Entry<String, PlayerWarpBackData> entry : this.data.entrySet()) {
+                clone.data.put(entry.getKey(), entry.getValue().clone());
+            }
         }
         return clone;
     }
 
     public PlayerWarpBackLocationComponent(){
+        data = new HashMap<String,PlayerWarpBackData>();
     }
 
     public PlayerWarpBackLocationComponent(Ref<EntityStore> player, String key){
@@ -74,8 +77,10 @@ public class PlayerWarpBackLocationComponent implements Component<EntityStore> {
     public PlayerWarpBackLocationComponent(PlayerWarpBackLocationComponent other){
 
         this.data = new HashMap<String,PlayerWarpBackData>();
-        for (Map.Entry<String, PlayerWarpBackData> entry : other.data.entrySet()) {
-            this.data.put(entry.getKey(), entry.getValue().clone());
+        if(other.data != null) {
+            for (Map.Entry<String, PlayerWarpBackData> entry : other.data.entrySet()) {
+                this.data.put(entry.getKey(), entry.getValue().clone());
+            }
         }
     }
 
@@ -107,18 +112,24 @@ public class PlayerWarpBackLocationComponent implements Component<EntityStore> {
     }
 
     public boolean hasWarp(String key){
+        if (data == null) data = new HashMap<>();
         return data.containsKey(key);
     }
 
+    @Nullable
     public Vector3d getLocation(String key){
+        if (data == null || !data.containsKey(key)) return null;
         return data.get(key).location.clone();
     }
-
+    
     public Vector3f getRotation(String key){
+        if (data == null || !data.containsKey(key)) return new Vector3f(0.0F, 0.0F, 0.0F);
         return data.get(key).rotation.clone();
     }
 
+    @Nullable
     public World getWorld(String key){
+        if (data == null || !data.containsKey(key)) return null;
         return Universe.get().getWorld(data.get(key).world);
     }
 }

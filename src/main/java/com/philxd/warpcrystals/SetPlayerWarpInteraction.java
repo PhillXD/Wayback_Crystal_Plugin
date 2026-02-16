@@ -7,6 +7,7 @@ import com.hypixel.hytale.component.CommandBuffer;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
+import com.hypixel.hytale.math.vector.Vector3d;
 import com.hypixel.hytale.protocol.InteractionState;
 import com.hypixel.hytale.protocol.InteractionType;
 import com.hypixel.hytale.server.core.Message;
@@ -16,6 +17,7 @@ import com.hypixel.hytale.server.core.modules.entity.teleport.Teleport;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.CooldownHandler;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.SimpleInstantInteraction;
 import com.hypixel.hytale.server.core.universe.Universe;
+import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import org.checkerframework.checker.nullness.compatqual.NonNullDecl;
 
@@ -52,10 +54,20 @@ public class SetPlayerWarpInteraction extends SimpleInstantInteraction {
 
             PlayerWarpBackLocationComponent warpBackLocationComponent = playerStore.getComponent(playerRef, WarpCrystals.get().getPlayerWarpBackComponentType());
             if(warpBackLocationComponent != null && warpBackLocationComponent.hasWarp(key)){
+
+                Vector3d location = warpBackLocationComponent.getLocation(key);
+                World world = warpBackLocationComponent.getWorld(key);
+                
+                if(location == null || world == null) {
+                    LOGGER.atWarning().log("Warp back component data is incomplete | key: " + key);
+                    interactionContext.getState().state = InteractionState.Failed;
+                    return;
+                }
+                
                 //teleport player to warp back location
                 Teleport teleport = new Teleport(
-                        warpBackLocationComponent.getWorld(key),
-                        warpBackLocationComponent.getLocation(key),
+                        world,
+                        location,
                         WarpCrystals.reduceRotationToYaw(warpBackLocationComponent.getRotation(key))
                 );
                 commandBuffer.addComponent(playerRef,Teleport.getComponentType(),teleport);
