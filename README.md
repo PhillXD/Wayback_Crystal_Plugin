@@ -1,5 +1,7 @@
 # Wayback Crystals
 
+Download on [Curseforge](https://www.curseforge.com/hytale/mods/wayback-crystals)
+
 A Hytale plugin by Phillip Laue
 
 Teleportation Crystals that allow players to teleport to a location they have set using a custom block.
