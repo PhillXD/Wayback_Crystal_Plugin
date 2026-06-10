@@ -6,9 +6,9 @@ import com.hypixel.hytale.codec.codecs.map.MapCodec;
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
-import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.math.vector.Vector3f;
-import com.hypixel.hytale.math.vector.Vector3i;
+import com.hypixel.hytale.math.vector.Rotation3f;
+import org.joml.Vector3d;
+import org.joml.Vector3i;
 import com.hypixel.hytale.protocol.BlockPosition;
 import com.hypixel.hytale.server.core.modules.entity.component.HeadRotation;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
@@ -67,9 +67,9 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
             warpData = new PlayerWarpData();
         }
         
-        warpData.location = location.clone();
+        warpData.location = new Vector3d(location);
         HeadRotation headRotation = (HeadRotation)playerStore.getComponent(player, HeadRotation.getComponentType());
-        Vector3f rotation = headRotation != null ? headRotation.getRotation() : new Vector3f(0.0F, 0.0F, 0.0F);
+        Rotation3f rotation = headRotation != null ? headRotation.getRotation() : new Rotation3f(0.0F, 0.0F, 0.0F);
         warpData.rotation = rotation.clone();
         
         warpData.blockLocation = new Vector3i(blockPosition.x,blockPosition.y,blockPosition.z);
@@ -107,9 +107,9 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
             warpData = new PlayerWarpData();
         }
         
-        warpData.location = location.clone();
+        warpData.location = new Vector3d(location);
         HeadRotation headRotation = (HeadRotation)playerStore.getComponent(player, HeadRotation.getComponentType());
-        Vector3f rotation = headRotation != null ? headRotation.getRotation() : new Vector3f(0.0F, 0.0F, 0.0F);
+        Rotation3f rotation = headRotation != null ? headRotation.getRotation() : new Rotation3f(0.0F, 0.0F, 0.0F);
         warpData.rotation = rotation.clone();
 
         warpData.blockLocation = new Vector3i(blockPosition.x,blockPosition.y,blockPosition.z);
@@ -126,7 +126,7 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
     @Nullable
     public Vector3d getLocation(String key){
         if (data == null || !data.containsKey(key)) return null;
-        return data.get(key).location.clone();
+        return new Vector3d(data.get(key).location);
     }
     
     @Nullable
@@ -139,8 +139,8 @@ public class PlayerWarpLocationComponent implements Component<EntityStore> {
         return blockPosition;
     }
     
-    public Vector3f getRotation(String key){
-        if (data == null || !data.containsKey(key)) return new Vector3f(0.0F, 0.0F, 0.0F);
+    public Rotation3f getRotation(String key){
+        if (data == null || !data.containsKey(key)) return new Rotation3f(0.0F, 0.0F, 0.0F);
         return data.get(key).rotation.clone();
     }
     

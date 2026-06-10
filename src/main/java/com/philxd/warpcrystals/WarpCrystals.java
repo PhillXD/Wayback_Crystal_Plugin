@@ -4,7 +4,7 @@ import com.hypixel.hytale.component.ComponentType;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.logger.HytaleLogger;
 
-import com.hypixel.hytale.math.vector.Vector3f;
+import com.hypixel.hytale.math.vector.Rotation3f;
 import com.hypixel.hytale.server.core.event.events.player.PlayerReadyEvent;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
@@ -65,7 +65,7 @@ public class WarpCrystals extends JavaPlugin {
         return warpBackComponent;
     }
     
-    public static Vector3f reduceRotationToYaw(Vector3f rotation) {
-        return new Vector3f(0, rotation.getYaw(), 0);
+    public static Rotation3f reduceRotationToYaw(Rotation3f rotation) {
+        return new Rotation3f(0, rotation.yaw(), 0);
     }
 }
