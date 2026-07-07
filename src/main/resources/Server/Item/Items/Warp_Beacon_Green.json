@@ -1,0 +1,100 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Warp_Beacon_Green.name",
+    "Description": "server.items.Warp_Beacon.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Warp_Beacon_Green.png",
+  "Categories": [
+    "Blocks.Rocks"
+  ],
+  "PlayerAnimationsId": "Block",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Wayback_Beacon_Green.png"
+      }
+    ],
+    "Group": "Stone",
+    "Flags": {
+      "IsUsable": false
+    },
+    "BlockParticleSetId": "Stone",
+    "ParticleColor": "#6e6e6e",
+    "BlockSoundSetId": "Crystal",
+    "CubeShadingMode": "Reflective",
+    "Light": {
+      "Color": "#1b1"
+    },
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          {
+            "Type": "Set_Player_Warp_Interaction",
+            "WarpKey": "Green"
+          }
+        ]
+      }
+    },
+    "CustomModel": "Blocks/Wayback/WaybackBeacon.blockymodel",
+    "Gathering": {
+      "Breaking": {
+        "GatherType": "Rocks",
+        "Quality": 0
+      }
+    },
+    "Support": {
+      "Down": [
+        {
+          "FaceType": "Full"
+        }
+      ]
+    },
+    "HitboxType": "Waypoint_Beacon"
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Crystal"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.4,
+    "Rotation": [
+      22.5,
+      47,
+      22.5
+    ],
+    "Translation": [
+      0,
+      -27
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Warp_Beacon"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Builders",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Warping"
+        ]
+      }
+    ]
+  },
+  "MaxStack": 20,
+  "ResourceTypes": [
+    {
+      "Id": "Warp_Beacon"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "PrimaryOutput": {
+    "ItemId": "Warp_Beacon"
+  },
+  "Input": [
+    {
+      "ResourceTypeId": "Warp_Beacon"
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Id": "Builders",
+      "Type": "StructuralCrafting",
+      "Categories": [
+        "Warping"
+      ]
+    }
+  ]
+}

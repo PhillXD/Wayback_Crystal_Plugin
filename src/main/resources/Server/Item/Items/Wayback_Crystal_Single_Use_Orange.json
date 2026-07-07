@@ -1,0 +1,110 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.Wayback_Crystal_One_Use_Orange.name",
+    "Description": "server.items.Wayback_Crystal_One_Use.description"
+  },
+  "Icon": "Icons/ItemsGenerated/Wayback_Crystal_Single_Use_Orange.png",
+  "Categories": [
+    "Blocks.Rocks",
+    "Blocks.Rocks"
+  ],
+  "PlayerAnimationsId": "Block",
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "HitboxType": "Full",
+    "Flags": {},
+    "Gathering": {
+      "Breaking": {
+        "DropList": "Rock_Crystal_Water",
+        "GatherType": "Rocks"
+      }
+    },
+    "BlockParticleSetId": "Crystal",
+    "ParticleColor": "#245bc1",
+    "BlockSoundSetId": "Crystal",
+    "CubeShadingMode": "Reflective",
+    "Light": {
+      "Color": "#740"
+    },
+    "VariantRotation": "Pipe",
+    "CustomModel": "Blocks/Wayback/Wayback_Crystal.blockymodel",
+    "CustomModelTexture": [
+      {
+        "Texture": "BlockTextures/Wayback_Crystal_One_Use_Orange.png"
+      }
+    ]
+  },
+  "Tags": {
+    "Type": [
+      "Rock"
+    ],
+    "Family": [
+      "Crystal"
+    ]
+  },
+  "IconProperties": {
+    "Scale": 0.5,
+    "Rotation": [
+      5,
+      51,
+      13
+    ],
+    "Translation": [
+      0,
+      -11
+    ]
+  },
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "Input": [
+      {
+        "ResourceTypeId": "Wayback_Crystal_Single_Use"
+      }
+    ],
+    "BenchRequirement": [
+      {
+        "Id": "Builders",
+        "Type": "StructuralCrafting",
+        "Categories": [
+          "Warping"
+        ]
+      }
+    ]
+  },
+  "Interactions": {
+    "Secondary": {
+      "Interactions": [
+        "Warp_Timed"
+      ],
+      "RequireNewClick": true
+    }
+  },
+  "MaxStack": 1,
+  "InteractionVars": {
+    "WarpKey": {
+      "Interactions": [
+        {
+          "Type": "Warp_Player_Interaction",
+          "WarpKey": "Orange",
+          "Next": {
+            "Type": "ModifyInventory",
+            "AdjustHeldItemQuantity": -1,
+            "Effects": {
+              "LocalSoundEventId": "SFX_Crystal_Break"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "ResourceTypes": [
+    {
+      "Id": "Wayback_Crystal_Single_Use"
+    },
+    {
+      "Id": "Wayback_Crystal_General"
+    }
+  ]
+}

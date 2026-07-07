@@ -1,0 +1,19 @@
+{
+  "PrimaryOutput": {
+    "ItemId": "Wayback_Crystal"
+  },
+  "Input": [
+    {
+      "ResourceTypeId": "Wayback_Crystal"
+    }
+  ],
+  "BenchRequirement": [
+    {
+      "Id": "Builders",
+      "Type": "StructuralCrafting",
+      "Categories": [
+        "Warping"
+      ]
+    }
+  ]
+}
